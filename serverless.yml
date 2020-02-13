@@ -1,0 +1,23 @@
+service: serverless-site
+# Define your serverless service name above
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: us-east-1
+# Your region may vary
+  profile: default
+  
+custom:
+  account: ${opt:account, 'prod'}
+  region: ${opt:region, 'us-east-1'}
+  stage: ${opt:stage, 'prod'}
+  tags:
+    Application: serverless-site
+    Owner: Your Name
+# Set your name above
+    Environment: ${self:custom.stage}
+          
+resources:
+  # S3 Bucket used for hosting content
+  - ${file(resources/s3-bucket.yml)}

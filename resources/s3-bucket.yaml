@@ -1,0 +1,16 @@
+Resources:
+    S3WebsiteBucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        PublicAccessBlockConfiguration:
+          BlockPublicAcls: true
+          BlockPublicPolicy: true
+          IgnorePublicAcls: true
+          RestrictPublicBuckets: true
+
+Outputs:
+  S3Bucket:
+    Description: 'S3 Website Bucket Name'
+    Value: !Ref BucketName
+  BucketARN:
+    Value: !GetAtt s3Bucket.Arn
