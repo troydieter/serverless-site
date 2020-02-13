@@ -20,4 +20,4 @@ custom:
           
 resources:
   # S3 Bucket used for hosting content
-  - ${file(resources/s3-bucket.yml)}
+  - ${file(resources/s3-bucket.yaml)}
